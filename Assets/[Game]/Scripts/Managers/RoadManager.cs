@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class RoadSpawner : Singleton<RoadSpawner>
+public class RoadManager : Singleton<RoadManager>
 {
     public List<GameObject> roads;
     private float offset = 35f;

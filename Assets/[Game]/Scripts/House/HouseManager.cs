@@ -23,7 +23,6 @@ public class HouseManager : Singleton<HouseManager>
     {
         MoveHouses();
         CreateHouse();
-
     }
 
     // Movevement of Houses
@@ -55,7 +54,6 @@ public class HouseManager : Singleton<HouseManager>
     }
     
     // Move the house when its out of screen
-    [Button]
     public void CreateHouse()
     {
         float offset = Random.Range(4f, 7f);

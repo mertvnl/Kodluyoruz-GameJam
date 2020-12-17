@@ -6,7 +6,7 @@ public class Road : MonoBehaviour
 {
     private void OnEnable()
     {
-        RoadSpawner.Instance.roads.Add(this.gameObject);
+        RoadManager.Instance.roads.Add(this.gameObject);
     }
     private void OnDisable()
     {
@@ -14,6 +14,6 @@ public class Road : MonoBehaviour
         {
             return;
         }
-        RoadSpawner.Instance.roads.Remove(this.gameObject);
+        RoadManager.Instance.roads.Remove(this.gameObject);
     }
 }

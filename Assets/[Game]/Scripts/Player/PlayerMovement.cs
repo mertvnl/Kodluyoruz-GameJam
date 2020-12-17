@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         Road road = other.GetComponentInParent<Road>();
         if (road != null)
         {
-            RoadSpawner.Instance.MoveRoad();
+            RoadManager.Instance.MoveRoad();
         }
     }
 }
