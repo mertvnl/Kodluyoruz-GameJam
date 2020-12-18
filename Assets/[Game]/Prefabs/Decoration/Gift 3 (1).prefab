@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayRotation: {x: 0, y: 0, z: 0}
   maxDistance: 1000
-  TargetPrefab: {fileID: 1514385249608324, guid: 34d7ed780e63cc74791cf90c7dff34dc,
+  TargetPrefab: {fileID: 1514385249608324, guid: a0a51e577d91b1e459cd7c382ae5fde5,
     type: 3}
   Target: {fileID: 3893287862488929989}
   aimPoint: {x: 0, y: 0, z: 0}
