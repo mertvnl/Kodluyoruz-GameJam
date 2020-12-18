@@ -14,13 +14,4 @@ public class PlayerMovement : MonoBehaviour
 
         Rb.velocity = input * moveSpeed * Time.fixedDeltaTime;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Road road = other.GetComponentInParent<Road>();
-        if (road != null)
-        {
-            RoadManager.Instance.MoveRoad();
-        }
-    }
 }

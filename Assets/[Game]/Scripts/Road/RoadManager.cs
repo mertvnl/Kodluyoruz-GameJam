@@ -6,7 +6,7 @@ using UnityEngine;
 public class RoadManager : Singleton<RoadManager>
 {
     public List<GameObject> roads;
-    private float offset = 35f;
+    private float offset = 35.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,22 +16,27 @@ public class RoadManager : Singleton<RoadManager>
         }
     }
 
-    //public void MoveRoad()
-    //{
-    //    GameObject movedRoad = roads[0];
-    //    roads.Remove(movedRoad);
-    //    float newZ = roads[roads.Count - 1].transform.position.z + offset;
-    //    movedRoad.transform.position = new Vector3(0, 0, newZ);
-    //    roads.Add(movedRoad);
-    //}
+    private void Update()
+    {
+        CreateRoad();
+        MoveRoad();
+    }
+    
     public void MoveRoad()
     {
+        for (int i = 0; i < roads.Count; i++)
+        {
+            roads[i].transform.position += Vector3.back * GameManager.Instance.gameSpeed * Time.deltaTime;
+        }
+    }
+    public void CreateRoad()
+    {
         GameObject movedRoad = roads[0];
-        if (movedRoad.transform.position.z < -10f)
+        if (movedRoad.transform.position.z < -12f)
         {
             roads.Remove(movedRoad);
             float newZ = roads[roads.Count - 1].transform.position.z + offset;
-            movedRoad.transform.position = new Vector3(movedRoad.transform.position.x, movedRoad.transform.position.y, newZ);
+            movedRoad.transform.position = new Vector3(0, 0, newZ);
             roads.Add(movedRoad);
         }
     }
