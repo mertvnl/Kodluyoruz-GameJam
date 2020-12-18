@@ -692,7 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1259762591101698, guid: d9c1fac1f620ebd4f9e47ef7b9ca6bca, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4846459981974822, guid: d9c1fac1f620ebd4f9e47ef7b9ca6bca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -753,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1259762591101698, guid: d9c1fac1f620ebd4f9e47ef7b9ca6bca, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4846459981974822, guid: d9c1fac1f620ebd4f9e47ef7b9ca6bca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -942,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1325620532855614, guid: eab0ff9626d52cf45b04b5d03faecc2b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4634224576167428, guid: eab0ff9626d52cf45b04b5d03faecc2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1516,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1325620532855614, guid: eab0ff9626d52cf45b04b5d03faecc2b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4634224576167428, guid: eab0ff9626d52cf45b04b5d03faecc2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2260,6 +2260,9 @@ GameObject:
   - component: {fileID: 1475338887800392}
   - component: {fileID: 1475338887800393}
   - component: {fileID: 1475338887800394}
+  - component: {fileID: 1475338887800395}
+  - component: {fileID: 1475338887800396}
+  - component: {fileID: 1475338887800397}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2296,6 +2299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 700
+  giftBox: {fileID: 6680632319647530015, guid: aa82f06a44c39e34f8c8f8aa0bd34cf8, type: 3}
 --- !u!114 &1475338887800394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,6 +2315,53 @@ MonoBehaviour:
   Curvature: {x: 0, y: 0, z: 0}
   Distance: 0
   CurvatureScaleUnit: 1000
+--- !u!114 &1475338887800395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475338887800391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3ec4b2cc512964fa0155f97d61d891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayRotation: {x: 0, y: 0, z: 0}
+  maxDistance: 1000
+  TargetPrefab: {fileID: 1514385249608324, guid: 34d7ed780e63cc74791cf90c7dff34dc,
+    type: 3}
+  Target: {fileID: 0}
+  aimPoint: {x: 0, y: 0, z: 0}
+--- !u!114 &1475338887800396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475338887800391}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d07bfa2ea807849b2b5d74b9c34190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1475338887800397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475338887800391}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e380b41d88e9d8346a5cb7efbebb9bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 4392400640205189}
+  gifts:
+  - {fileID: 6680632319647530015, guid: aa82f06a44c39e34f8c8f8aa0bd34cf8, type: 3}
+  - {fileID: 6680632319647530015, guid: aa82f06a44c39e34f8c8f8aa0bd34cf8, type: 3}
+  - {fileID: 6680632319647530015, guid: aa82f06a44c39e34f8c8f8aa0bd34cf8, type: 3}
 --- !u!1 &1475717383760735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,7 +2831,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475338887800391}
   m_LocalRotation: {x: 0.6560524, y: 0, z: 0, w: 0.7547154}
-  m_LocalPosition: {x: 0, y: 10, z: 2.56}
+  m_LocalPosition: {x: 0, y: 10, z: 6}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
   m_Children:
   - {fileID: 4135606318666363}
