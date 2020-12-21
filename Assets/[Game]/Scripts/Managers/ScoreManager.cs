@@ -6,6 +6,7 @@ using UnityEngine;
 public class ScoreManager : Singleton<ScoreManager>
 {
     public int score = 0;
+    public int scoreMultiplier = 1;
     public void ScoreDown()
     {
         if (score > 0)
@@ -17,6 +18,6 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public void ScoreUp()
     {
-        score++;
+        score += 1 * scoreMultiplier;
     }
 }

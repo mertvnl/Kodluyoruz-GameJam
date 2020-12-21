@@ -13,13 +13,11 @@ public class HouseManager : Singleton<HouseManager>
     public Transform leftLine;
     public Transform rightLine;
 
-    // Start is called before the first frame update
     void Start()
     {
         Initialize();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CreateHouse();

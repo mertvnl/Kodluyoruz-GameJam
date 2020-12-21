@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         transform.DORotate(new Vector3(82, 0, 0), 2f);
         GameManager.Instance.isGameStarted = true;
         yield return new WaitForSeconds(2f);
-        
     }
 
 

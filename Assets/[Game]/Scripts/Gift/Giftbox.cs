@@ -21,7 +21,6 @@ public class Giftbox : MonoBehaviour
         Chimney chimney = other.GetComponent<Chimney>();
         if (chimney != null)
         {
-            Debug.Log("Score");
             ScoreManager.Instance.ScoreUp();
             EventManager.OnScore.Invoke();
             Destroy(gameObject);
@@ -31,7 +30,6 @@ public class Giftbox : MonoBehaviour
             GameManager.Instance.LoseHealth();
             ScoreManager.Instance.ScoreDown();
             EventManager.OnMiss.Invoke();
-            Debug.Log(other.gameObject.name);
             Destroy(gameObject);
         }
     }
