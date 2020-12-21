@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Giftbox : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Giftbox : MonoBehaviour
     public Rigidbody Rigidbody { get { return (rigidbody == null) ? rigidbody = GetComponent<Rigidbody>() : rigidbody; } }
     void Start()
     {
-        transform.rotation = new Quaternion(90, 0, 0, 0);
+        transform.Rotate(new Vector3(-90, 0, 0));
         float gravityY = Physics.gravity.y;
         Rigidbody.velocity = new Vector3(0, gravityY, -GameManager.Instance.gameSpeed);
     }
