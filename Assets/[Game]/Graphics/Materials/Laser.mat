@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Laser
-  m_Shader: {fileID: 4800000, guid: a8400f8f9ce1ff64c91bafb32facc21c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 269e5db7f277b0344a55baa5a156c9f8, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0

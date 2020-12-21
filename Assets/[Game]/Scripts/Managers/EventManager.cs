@@ -5,5 +5,9 @@ using UnityEngine.Events;
 
 public static class EventManager
 {
-    public static UnityEvent OnLevelFinish = new UnityEvent();
+    public static UnityEvent OnScore = new UnityEvent();
+    public static UnityEvent OnMiss = new UnityEvent();
+    public static UnityEvent OnGameOver = new UnityEvent();
+    public static UnityEvent OnGameStart = new UnityEvent();
+
 }

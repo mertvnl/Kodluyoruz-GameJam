@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,14 +19,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameManager.Instance.isGameStarted)
         {
-            Shoot();
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1))
+            {
+                Shoot();
+            }
         }
     }
 
     private void Shoot()
     {
-        Instantiate(giftBox, transform.position, Quaternion.identity);
+        Instantiate(giftBox, transform.position + Vector3.down, Quaternion.identity);
     }
+
+    public void StartingAnimation()
+    {
+        StartCoroutine(StartingAnimationCo());
+    }
+
+    public IEnumerator StartingAnimationCo()
+    {
+        transform.DOMoveY(30f, 2f);
+        yield return new WaitForSeconds(2f);
+        transform.DOMove(new Vector3(0, 10, 10), 2f);
+        transform.DORotate(new Vector3(82, 0, 0), 2f);
+        GameManager.Instance.isGameStarted = true;
+        yield return new WaitForSeconds(2f);
+        
+    }
+
+
 }

@@ -6,6 +6,7 @@ using System.Linq;
 
 public class HouseManager : Singleton<HouseManager>
 {
+    public int startingHouseCount;
     public List<House> houses;
     public List<GameObject> houseList;
     public GameObject lastObj;
@@ -21,8 +22,10 @@ public class HouseManager : Singleton<HouseManager>
     // Update is called once per frame
     void Update()
     {
-        MoveHouses();
         CreateHouse();
+        if (GameManager.Instance.isGameStarted)
+            MoveHouses();
+        
     }
 
     // Movevement of Houses
@@ -38,12 +41,12 @@ public class HouseManager : Singleton<HouseManager>
     private void Initialize()
     {
         Instantiate(houseList[Random.Range(0, houseList.Count)], leftLine.position + Vector3.forward * 10f, Quaternion.identity);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < startingHouseCount; i++)
         {
             Instantiate(houseList[Random.Range(0, houseList.Count)], lastObj.transform.position + Vector3.forward * 10f, Quaternion.identity);
         }
         Instantiate(houseList[Random.Range(0, houseList.Count)], rightLine.position + Vector3.forward * 10f, Quaternion.identity);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < startingHouseCount; i++)
         {
             Instantiate(houseList[Random.Range(0, houseList.Count)], lastObj.transform.position + Vector3.forward * 10f, Quaternion.identity);
         }
@@ -58,7 +61,7 @@ public class HouseManager : Singleton<HouseManager>
     {
         float offset = Random.Range(4f, 7f);
         House movedHouse = houses[0];
-        if (movedHouse.transform.position.z < -11f)
+        if (movedHouse.transform.position.z < -8f)
         {
             houses.Remove(movedHouse);
             float newZ = houses[houses.Count - 1].transform.position.z + offset;

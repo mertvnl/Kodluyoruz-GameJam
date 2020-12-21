@@ -18,15 +18,19 @@ public class TreesManager : Singleton<TreesManager>
     }
     void Update()
     {
-        CreateTrees();
-        MoveTrees();
+        if (trees.Count > 0)
+        {
+            CreateTrees();
+            if (GameManager.Instance.isGameStarted)
+                MoveTrees();
+        }
     }
 
     private void MoveTrees()
     {
         for (int i = 0; i < trees.Count; i++)
         {
-            trees[i].transform.position += Vector3.back * (GameManager.Instance.gameSpeed / 2f) * Time.deltaTime;
+            trees[i].transform.position += Vector3.back * (GameManager.Instance.gameSpeed) * Time.deltaTime;
         }
     }
 
@@ -34,10 +38,10 @@ public class TreesManager : Singleton<TreesManager>
     {
         float offset = Random.Range(2f, 4f);
         Tree movedTree = trees[0];
-        if (movedTree.transform.position.z < -11f)
+        if (movedTree.transform.position.z < -9f)
         {
             trees.Remove(movedTree);
-            float newZ = trees[trees.Count - 1].transform.position.z + offset + 10f;
+            float newZ = trees[trees.Count - 1].transform.position.z + offset + 20f;
             movedTree.transform.position = new Vector3(movedTree.transform.position.x, movedTree.transform.position.y, newZ);
             trees.Add(movedTree);
         }

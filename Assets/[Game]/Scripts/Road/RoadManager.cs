@@ -19,7 +19,8 @@ public class RoadManager : Singleton<RoadManager>
     private void Update()
     {
         CreateRoad();
-        MoveRoad();
+        if (GameManager.Instance.isGameStarted)
+            MoveRoad();
     }
     
     public void MoveRoad()
