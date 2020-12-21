@@ -65,7 +65,6 @@ public class GameManager : Singleton<GameManager>
 
     public void Die()
     {
-        Debug.Log("GameOver");
         Time.timeScale = 0;
         isGameStarted = false;
     }
