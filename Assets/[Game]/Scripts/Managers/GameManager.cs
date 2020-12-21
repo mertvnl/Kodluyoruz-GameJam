@@ -54,6 +54,15 @@ public class GameManager : Singleton<GameManager>
         }
         
     }
+
+    public void HealUp()
+    {
+        if (playerHealth < 3)
+        {
+            playerHealth++;
+        }
+    }
+
     public void Die()
     {
         Debug.Log("GameOver");

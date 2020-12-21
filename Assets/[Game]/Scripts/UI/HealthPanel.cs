@@ -9,12 +9,15 @@ public class HealthPanel : MonoBehaviour
 
     private void OnEnable()
     {
+        
         EventManager.OnMiss.AddListener(UpdateUI);
+        EventManager.OnHealUp.AddListener(UpdateUI);
     }
 
     private void OnDisable()
     {
         EventManager.OnMiss.RemoveListener(UpdateUI);
+        EventManager.OnHealUp.RemoveListener(UpdateUI);
     }
 
     public void UpdateUI()

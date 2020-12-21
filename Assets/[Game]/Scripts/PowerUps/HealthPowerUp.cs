@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPowerUp : MonoBehaviour
+public class HealthPowerUp : CollectableBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Collect()
     {
-        
+        base.Collect();
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void Use()
     {
-        
+        GameManager.Instance.HealUp();
+        EventManager.OnHealUp.Invoke();
     }
 }

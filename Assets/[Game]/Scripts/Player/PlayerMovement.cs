@@ -48,5 +48,14 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        ICollectable icollectable = other.GetComponent<ICollectable>();
+        if (icollectable != null)
+        {
+            icollectable.Collect();
+        }
+    }
+
 
 }

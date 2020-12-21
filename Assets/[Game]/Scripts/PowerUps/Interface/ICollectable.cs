@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ICollectable : MonoBehaviour
+public interface ICollectable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Collect();
+    void Use();
+    void Dispose();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

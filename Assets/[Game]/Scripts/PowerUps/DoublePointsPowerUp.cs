@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoublePointsPowerUp : MonoBehaviour
+public class DoublePointsPowerUp : CollectableBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Collect()
     {
-        
+        base.Collect();
+    }
+    public override void Use()
+    {
+        ScoreManager.Instance.DoubleScore();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

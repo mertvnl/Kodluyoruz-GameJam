@@ -20,4 +20,15 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         score += 1 * scoreMultiplier;
     }
+
+    public void DoubleScore()
+    {
+        StartCoroutine(DoublePoints());
+    }
+    public IEnumerator DoublePoints()
+    {
+        scoreMultiplier = 2;
+        yield return new WaitForSeconds(10);
+        scoreMultiplier = 1;
+    }
 }

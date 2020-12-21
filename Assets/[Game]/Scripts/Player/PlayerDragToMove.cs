@@ -9,6 +9,19 @@ public class PlayerDragToMove : MonoBehaviour
 {
     private Vector3 mOffset;
     private float mZCoord;
+
+    private void FixPlayerPos()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        pos.x = Mathf.Clamp01(pos.x);
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
+    }
+
+    private void FixedUpdate()
+    {
+        FixPlayerPos();
+    }
+
     void OnMouseDown()
 
     {
@@ -44,10 +57,8 @@ public class PlayerDragToMove : MonoBehaviour
     {
         if (GameManager.Instance.isGameStarted)
         {
-            transform.position = new Vector3(GetMouseAsWorldPoint().x + mOffset.x, transform.position.y, transform.position.z);
+            transform.position = new Vector3(GetMouseAsWorldPoint().x + mOffset.x, 10, 10);
         }
-        
-
     }
 
 }
