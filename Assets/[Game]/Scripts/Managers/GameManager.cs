@@ -62,7 +62,6 @@ public class GameManager : Singleton<GameManager>
         if (playerHealth < 3)
         {
             playerHealth++;
-            Debug.Log("Heal up");
         }
     }
 

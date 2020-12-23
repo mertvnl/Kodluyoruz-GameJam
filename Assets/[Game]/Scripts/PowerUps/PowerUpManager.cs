@@ -6,16 +6,25 @@ public class PowerUpManager : MonoBehaviour
 {
     public List<GameObject> powerUpPrefabs;
     public List<Transform> powerUpSpawnLanes;
-    public float spawnDelay = 30f;
+    private float spawnDelay = 30f;
     private float spawnTime = 20f;
+    public float minSpawnRatio = 20f, maxSpawnRatio = 30f;
+
+    private void OnEnable()
+    {
+        EventManager.OnGameStart.AddListener(CreatePowerUp);
+    }
+    private void OnDisable()
+    {
+        EventManager.OnGameStart.RemoveListener(CreatePowerUp);
+    }
 
     private void Update()
     {
         if (GameManager.Instance.isGameStarted)
         {
-            CreatePowerUp();
+            //CreatePowerUp();
         }
-        
     }
     private Vector3 GetRandomLane()
     {
@@ -29,19 +38,20 @@ public class PowerUpManager : MonoBehaviour
 
     private void CreatePowerUp()
     {
-        if (Time.time > spawnTime)
-        {
-            spawnTime += spawnDelay;
-            Instantiate(GetRandomPowerUp(), GetRandomLane(), Quaternion.identity);
-        }
-        
+        //if (Time.timeSinceLevelLoad > spawnTime)
+        //{
+        //    spawnTime += spawnDelay;
+        //    Instantiate(GetRandomPowerUp(), GetRandomLane(), Quaternion.identity);
+        //    Debug.Log("power up created");
+        //}
+        StartCoroutine(CreatePowerUpCo());
     }
 
     private IEnumerator CreatePowerUpCo()
     {
-        while (GameManager.Instance.isGameStarted)
+        while (true)
         {
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(Random.Range(minSpawnRatio,maxSpawnRatio));
             Debug.Log("power up created");
             Instantiate(GetRandomPowerUp(), GetRandomLane(), Quaternion.identity);
         }
