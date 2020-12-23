@@ -6,7 +6,6 @@ using DG.Tweening;
 
 public class Giftbox : MonoBehaviour
 {
-    public float downSpeed;
     private Rigidbody rigidbody;
     public Rigidbody Rigidbody { get { return (rigidbody == null) ? rigidbody = GetComponent<Rigidbody>() : rigidbody; } }
     void Start()

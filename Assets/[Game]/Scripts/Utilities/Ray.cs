@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class Ray : Singleton<Ray>
 {
-    
     public Vector3 rayRotation;
     public float maxDistance=1000f;
     public GameObject TargetPrefab;
     public Transform Target;
     public Vector3 aimPoint;
-   
-    void Start()
+
+    private void Start()
     {
-        Instantiate(TargetPrefab);
-        Target=GameObject.FindWithTag("Target").transform;
+        InitializeTarget();
     }
 
     // Update is called once per frame
     void Update()
     {
-        FollowTarget();
+        if (GameManager.Instance.isGameStarted)
+        {
+            FollowTarget();
+        } 
     }
 
     private void FollowTarget()
@@ -31,5 +32,11 @@ public class Ray : Singleton<Ray>
         {
             Target.transform.position = new Vector3(hit.point.x, hit.point.y, transform.position.z);
         }
+    }
+
+    public void InitializeTarget()
+    {
+        Instantiate(TargetPrefab);
+        Target = GameObject.FindWithTag("Target").transform;
     }
 }

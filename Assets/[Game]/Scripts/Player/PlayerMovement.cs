@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
         transform.DOMove(new Vector3(0, 10, 10), 2f);
         transform.DORotate(new Vector3(82, 0, 0), 2f);
-        GameManager.Instance.isGameStarted = true;
+        EventManager.OnGameStart.Invoke();
         yield return new WaitForSeconds(2f);
     }
 

@@ -13,17 +13,18 @@ public class HouseManager : Singleton<HouseManager>
     public Transform leftLine;
     public Transform rightLine;
 
-    void Start()
+    private void Start()
     {
         Initialize();
     }
 
     void Update()
     {
-        CreateHouse();
         if (GameManager.Instance.isGameStarted)
+        {
             MoveHouses();
-        
+            CreateHouse();
+        }
     }
 
     // Movevement of Houses

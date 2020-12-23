@@ -23,6 +23,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public void DoubleScore()
     {
+        Debug.Log("DoubleScore");
         StartCoroutine(DoublePoints());
     }
     public IEnumerator DoublePoints()

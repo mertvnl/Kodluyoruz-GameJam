@@ -16,12 +16,14 @@ public class GameManager : Singleton<GameManager>
     {
         EventManager.OnScore.AddListener(SpeedUp);
         EventManager.OnGameOver.AddListener(Die);
+        EventManager.OnGameStart.AddListener(() => isGameStarted = true);
     }
 
     private void OnDisable()
     {
         EventManager.OnScore.RemoveListener(SpeedUp);
         EventManager.OnGameOver.RemoveListener(Die);
+        EventManager.OnGameStart.RemoveListener(() => isGameStarted = false);
     }
 
     [Button]
@@ -60,6 +62,7 @@ public class GameManager : Singleton<GameManager>
         if (playerHealth < 3)
         {
             playerHealth++;
+            Debug.Log("Heal up");
         }
     }
 
