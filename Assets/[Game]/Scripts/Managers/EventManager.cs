@@ -10,5 +10,6 @@ public static class EventManager
     public static UnityEvent OnGameOver = new UnityEvent();
     public static UnityEvent OnGameStart = new UnityEvent();
     public static UnityEvent OnHealUp = new UnityEvent();
+    public static UnityEvent OnDoublePowerUp = new UnityEvent();
 
 }

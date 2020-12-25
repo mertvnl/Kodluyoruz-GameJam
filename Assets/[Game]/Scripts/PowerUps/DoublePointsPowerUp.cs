@@ -7,7 +7,6 @@ public class DoublePointsPowerUp : CollectableBase
 
     private void Update()
     {
-
         DestroyIfNotCollected();
         if (GameManager.Instance.isGameStarted)
             MovePowerUp();
@@ -19,8 +18,10 @@ public class DoublePointsPowerUp : CollectableBase
     public override void Collect()
     {
         base.Collect();
+        EventManager.OnDoublePowerUp.Invoke();
+
     }
-    public override void Use()
+public override void Use()
     {
         ScoreManager.Instance.DoubleScore();
     }
